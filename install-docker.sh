@@ -12,6 +12,7 @@ last_version=$(echo $docker_html | grep "<a.*href*" | sed 's/\(.*\)href="\([^"\n
 version_mid=${last_version%%.tgz}
 #赋值需要安装的版本
 docker_version=${version_mid#*docker-}
+docker_version=$(echo $docker_version| sed 's/rootless-extras-//g')
 apt_url="https://apt.dockerproject.org"
 yum_url="https://yum.dockerproject.org"
 gpg_fingerprint="9DC858229FC7DD38854AE2D88D81803C0EBFCD88"
